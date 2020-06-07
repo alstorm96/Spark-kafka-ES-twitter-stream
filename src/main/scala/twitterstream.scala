@@ -1,7 +1,7 @@
 
 import java.sql.Timestamp
 import org.apache.spark.sql.expressions._
-
+import spark.implicits._
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.apache.spark.sql.streaming.Trigger
@@ -24,9 +24,9 @@ object twitterstream {
       getOrCreate()
 
     spark.sparkContext.setLogLevel("Error")
-    //spark.conf.set("spark.sql.shuffle.partitions", "2")
+    
 
-    import spark.implicits._
+    
 
     val line = spark.
       readStream.
